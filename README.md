@@ -1,3 +1,8 @@
+Human:
+This project was created by chatGPT (I did not change code just copy-paste that chat suggested)
+It is just experiment to show that chatGPT could be used for generate UI automation test project. 
+
+ChatGPT:
 # Project Name
 
 A sample project for implementing UI automation tests using Playwright and Python.
