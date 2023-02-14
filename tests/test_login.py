@@ -1,17 +1,21 @@
 import pytest
 from playwright.sync_api import Playwright, sync_playwright
+from pages.login_page import LoginPage
+
 
 def test_valid_login(playwright: Playwright):
-    with playwright.chromium.launch(headless=True) as browser:
+    # Start a new browser context
+    with playwright.chromium.launch() as browser:
         with browser.new_context() as context:
-            # Go to login page
+            # Create a LoginPage object and navigate to the login page
             page = context.new_page()
-            page.goto('https://www.saucedemo.com/')
+            login_page = LoginPage(page)
+            login_page.goto()
 
-            # Login
-            page.fill('#user-name', 'standard_user')
-            page.fill('#password', 'secret_sauce')
-            page.click('#login-button')
+            # Log in with valid credentials
+            login_page.login("standard_user", "secret_sauce")
 
-            # Verify that we are logged in and redirected to the inventory page
-            assert 'inventory' in page.url
+            # Check that the inventory page is loaded
+            assert login_page.is_login_successful()
+
+            # Perform additional tests on the inventory page here
