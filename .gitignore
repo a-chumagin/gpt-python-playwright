@@ -1,0 +1,28 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+pythonpw.egg-info/
+dist/
+build/
+*.egg-info/
+*.egg
+
+# System / user specific
+*.log
+*.swp
+.DS_Store
+.idea/
+.vscode/
+__pycache__/
+*.sqlite3
+*.bak
+
+# Environment
+env/
+venv/
